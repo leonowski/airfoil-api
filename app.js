@@ -85,7 +85,7 @@ app.post('/speakers/:id/disconnect', function (req, res) {
 app.post('/speakers/:id/volume', bodyParser.text({type: '*/*'}), function (req, res) {
   var script = "tell application \"Airfoil\"\n";
   script += "set myspeaker to first speaker whose id is \"" + req.params.id + "\"\n";
-  script += "set (volume of myspeaker) to " + parseFloat(req.body) + "\n";
+  script += "set (volume of myspeaker) to " + parseFloat(req.body)*1.00/100 + "\n";
   script += "volume of myspeaker\n";
   script += "end tell";
   applescript.execString(script, function(error, result) {
