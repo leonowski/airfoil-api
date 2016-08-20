@@ -5,6 +5,18 @@ var bodyParser = require('body-parser');
 var applescript = require('applescript');
 var mdns = require('mdns');
 
+app.get('/spotify/play', function(req, res){
+  var script = "" +
+  "tell application \"Spotify\"\n" +
+  "play\n" +
+  "end tell";
+  
+app.get('/spotify/pause', function(req, res){
+  var script = "" +
+  "tell application \"Spotify\"\n" +
+  "pause\n" +
+  "end tell";
+
 app.get('/speakers', function(req, res){
   var script = "" +
   "tell application \"Airfoil\"\n" +
