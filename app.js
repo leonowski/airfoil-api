@@ -14,7 +14,7 @@ applescript.execString(script, function(error, result) {
     if (error) {
       res.json({error: error});
     } else {
-      res.json({playing})
+      res.json("playing")
     }
   });
 });
@@ -28,7 +28,7 @@ applescript.execString(script, function(error, result) {
     if (error) {
       res.json({error: error});
     } else {
-      res.json({pausing})
+      res.json("pausing")
     }
   });
 });
