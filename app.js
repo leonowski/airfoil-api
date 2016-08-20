@@ -10,12 +10,28 @@ app.get('/spotify/play', function(req, res){
   "tell application \"Spotify\"\n" +
   "play\n" +
   "end tell";
+applescript.execString(script, function(error, result) {
+    if (error) {
+      res.json({error: error});
+    } else {
+      res.json({playing})
+    }
+  });
+});
   
 app.get('/spotify/pause', function(req, res){
   var script = "" +
   "tell application \"Spotify\"\n" +
   "pause\n" +
   "end tell";
+applescript.execString(script, function(error, result) {
+    if (error) {
+      res.json({error: error});
+    } else {
+      res.json({pausing})
+    }
+  });
+});
 
 app.get('/speakers', function(req, res){
   var script = "" +
